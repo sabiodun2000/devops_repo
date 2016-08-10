@@ -1,7 +1,7 @@
 # Update cache daily
 #
 
-name "webserver"
+# name "webserver"
 
 description "This webserver serves http and https"
 
