@@ -15,11 +15,6 @@ default_attributes(
     }
 )
 
-
-
-
-
-
 file '/var/www/html/index.html' do
     content '<html>
     <head>
