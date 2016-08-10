@@ -1,19 +1,16 @@
-# Update cache daily
-#
+apt_update 'Update the apt cache daily' do
+    frequency 86_400
+    action :periodic
+end
 
-# name "webserver"
+package 'apache2'
 
-description "This webserver serves http and https"
+# enable and start apache webserver
 
-run_list(
-    "recipe[apache2]" ,
-    "recipe[apache2::mod_ssl]"
-)
-default_attributes(
-    "apache" => {
-        "listen" => ["*.80", "*.443"]
-    }
-)
+service 'apache2' do
+    supports :status => true
+    action [:enable, :start ]
+end
 
 file '/var/www/html/index.html' do
     content '<html>
